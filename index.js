@@ -1,30 +1,9 @@
-var x;
-x = document.querySelector('.submitBtn').addEventListener('click', function(){
-	var test;
-	test = document.querySelector('.newUrl').value;
-	return test;
-	console.log(test*2);
-});
-
-
-
-
-
-
-
-
-
-/*
-//Function constructor
-var Url = function(url){
-	this.url = url;
-};
-
 //Set event listener on click and keypress
-var setupEventListeners = function() {
+var setupEventListeners = function(){
+	console.log("Application on");
 	document.querySelector('.submitBtn').addEventListener('click', saveItem);
 	document.addEventListener('keypress', function(e){
-		if (e.keyCode === 13 || e.which === 13){
+		if(e.keyCode === 13 || e.which === 13){
 			saveItem();
 		}
 	});
@@ -40,30 +19,20 @@ function getInput() {
 function saveItem(){
 	var input, newUrl;
 
-	//1. Get the field input data
+	//1. Call get input function
 	input = getInput();
+	//2. Validate if there is input
 	if(input !== "") {
-		//2. Create a new URL instance
-		newUrl = new Url(input);
-		return newUrl;
-		console.log(date.url);
-		
-		//Redirect user to the next screen while supplying iframe src with the URL specified by user
+		//2. Call redirect function and supply input
+		redirect(input);
 	};
 };
 
-
-
-//Start application
-var init = function(){
-	console.log("Application mode on");
-	setupEventListeners();
-};
+//Redirect user to the next screen while supplying iframe src with the URL specified as input
+	function redirect(url){
+  		location.replace(url)
+	};
 
 
 
-
-
-
-init();
-*/
+setupEventListeners();
